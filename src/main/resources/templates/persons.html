@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Persons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Phone Number</td>
+            <td>Address</td>
+            <td>Email</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" person : ${persons}">
+            <td th:text="${person.firstName}"></td>
+            <td th:text="${person.lastName}"></td>
+            <td th:text="${person.phoneNumber}"></td>
+            <td th:text="${person.address}"></td>
+            <td th:text="${person.email}"></td>
+            <td><a th:href=" ${'/person/edit/'+person.id}">Edit</a></td>
+            <td><a th:href=" ${'/person/delete/'+person.id}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <a href="/newPerson">New Person</a>
+    </div>
+
+    <form action="#" th:action="@{/person/search}" th:object="${searchForm}" method="get">
+        <table>
+            <tr>
+                <td>Search:</td>
+                <td><input type="text" th:field="*{query}"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Submit search</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class = "row">
+        <form action="#" th:action="@{/logout}" th:method="post">
+            <input th:type="submit" th:value="logout" />
+        </form>
+    </div>
+</div>
+</body>
+</html>
