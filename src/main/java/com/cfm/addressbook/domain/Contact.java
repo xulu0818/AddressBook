@@ -3,13 +3,14 @@ package com.cfm.addressbook.domain;
 import lombok.*;
 
 import javax.persistence.*;
+
 import java.util.Objects;
 
 @Entity
 @Data
 @Table
 @NoArgsConstructor
-public class Person {
+public class Contact {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +22,7 @@ public class Person {
     private String address;
     private String email;
 
-    public Person(String firstName, String lastName, String phoneNumber, String address, String email) {
+    public Contact(String firstName, String lastName, String phoneNumber, String address, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -29,7 +30,7 @@ public class Person {
         this.email = email;
     }
 
-	public Person() {
+	public Contact() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -37,13 +38,13 @@ public class Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(id, person.id) &&
-                Objects.equals(firstName, person.firstName) &&
-                Objects.equals(lastName, person.lastName) &&
-                Objects.equals(phoneNumber, person.phoneNumber) &&
-                Objects.equals(address, person.address) &&
-                Objects.equals(email, person.email);
+        Contact contact = (Contact) o;
+        return Objects.equals(id, contact.id) &&
+                Objects.equals(firstName, contact.firstName) &&
+                Objects.equals(lastName, contact.lastName) &&
+                Objects.equals(phoneNumber, contact.phoneNumber) &&
+                Objects.equals(address, contact.address) &&
+                Objects.equals(email, contact.email);
     }
 
     @Override
@@ -53,7 +54,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Contact{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

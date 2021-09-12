@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Persons</title>
+    <title>addressBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
@@ -25,24 +25,24 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each=" person : ${persons}">
-            <td th:text="${person.firstName}"></td>
-            <td th:text="${person.lastName}"></td>
-            <td th:text="${person.phoneNumber}"></td>
-            <td th:text="${person.address}"></td>
-            <td th:text="${person.email}"></td>
-            <td><a th:href=" ${'/person/edit/'+person.id}">Edit</a></td>
-            <td><a th:href=" ${'/person/delete/'+person.id}">Delete</a></td>
+        <tr th:each=" contact : ${addressBook}">
+            <td th:text="${contact.firstName}"></td>
+            <td th:text="${contact.lastName}"></td>
+            <td th:text="${contact.phoneNumber}"></td>
+            <td th:text="${contact.address}"></td>
+            <td th:text="${contact.email}"></td>
+            <td><a th:href=" ${'/contact/edit/'+contact.id}">Edit</a></td>
+            <td><a th:href=" ${'/contact/delete/'+contact.id}">Delete</a></td>
         </tr>
         </tbody>
     </table>
     
-	<a href='/newPerson'><button>New Person</button></a>
+	<a href='/newContact'><button>New Contact</button></a>
 
-    <form action="#" th:action="@{/person/search}" th:object="${searchForm}" method="get">
+    <form action="#" th:action="@{/contact/search}" th:object="${searchForm}" method="get">
         <table>
             <tr>
-                <td>Search Person:</td>
+                <td>Search Contact:</td>
                 <td><input type="text" th:field="*{query}"/></td>
             </tr>
             <tr>
@@ -54,7 +54,7 @@
     </form>
 
     <div class = "row">
-    	<a href='/persons'><button>My Address Book</button></a>
+    	<a href='/addressBook'><button>My Address Book</button></a>
         <form action="#" th:action="@{/logout}" th:method="post">
             <input th:type="submit" th:value="logout" />
         </form>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>New person</title>
+    <title>New Contact</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
@@ -11,8 +11,8 @@
 </head>
 <body>
 <div class="container">
-<h1>Add New Person</h1>
-    <form class="form-horizontal" th:object="${person}" th:action="@{/persons}" th:method="post">
+<h1>Add New Contact</h1>
+    <form class="form-horizontal" th:object="${contact}" th:action="@{/addressBook}" th:method="post">
         <div class="form-group">
             <label class="control-label">First Name:</label>
             <input type="text" class="form-control" th:field="*{firstName}"/>
