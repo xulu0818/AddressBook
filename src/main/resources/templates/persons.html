@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-
+	<h1>Address Book</h1>
     <table class="table">
         <thead>
         <tr>
@@ -36,15 +36,13 @@
         </tr>
         </tbody>
     </table>
-
-    <div class="row">
-        <a href="/newPerson">New Person</a>
-    </div>
+    
+	<a href='/newPerson'><button>New Person</button></a>
 
     <form action="#" th:action="@{/person/search}" th:object="${searchForm}" method="get">
         <table>
             <tr>
-                <td>Search:</td>
+                <td>Search Person:</td>
                 <td><input type="text" th:field="*{query}"/></td>
             </tr>
             <tr>
@@ -56,6 +54,7 @@
     </form>
 
     <div class = "row">
+    	<a href='/persons'><button>My Address Book</button></a>
         <form action="#" th:action="@{/logout}" th:method="post">
             <input th:type="submit" th:value="logout" />
         </form>
