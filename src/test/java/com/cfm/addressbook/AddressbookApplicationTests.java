@@ -1,4 +1,4 @@
-package com.baspiotr.addressbook;
+package com.cfm.addressbook;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
